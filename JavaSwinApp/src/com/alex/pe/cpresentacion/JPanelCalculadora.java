@@ -47,7 +47,7 @@ public class JPanelCalculadora extends javax.swing.JPanel {
             float resultado= 0;
             if (Simbolo.equals("\\+")) {
                 resultado = PrimerNumero + SegundoNumero;   
-        }else if (Simbolo.equals("\\ -")) {
+        }else if (Simbolo.equals(" -")) {
                 resultado = PrimerNumero - SegundoNumero;         
         }else if (Simbolo.equals("\\*")) {
                 resultado = PrimerNumero * SegundoNumero;  
