@@ -32,7 +32,7 @@ public class NewJFrameprincipal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         btncalculadoracontadort = new javax.swing.JMenu();
         btnmenucalculadora = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        btnmenucontador = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -69,13 +69,13 @@ public class NewJFrameprincipal extends javax.swing.JFrame {
         });
         btncalculadoracontadort.add(btnmenucalculadora);
 
-        jMenuItem2.setText("contador");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        btnmenucontador.setText("contador");
+        btnmenucontador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                btnmenucontadorActionPerformed(evt);
             }
         });
-        btncalculadoracontadort.add(jMenuItem2);
+        btncalculadoracontadort.add(btnmenucontador);
 
         jMenuBar1.add(btncalculadoracontadort);
 
@@ -108,12 +108,18 @@ public class NewJFrameprincipal extends javax.swing.JFrame {
       Principal.repaint();
     }//GEN-LAST:event_btnmenucalculadoraActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    private void btnmenucontadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmenucontadorActionPerformed
+      JPanelContador cont = new JPanelContador();
+      cont.setSize (1200, 700);
+      cont.setLocation (0,0);
+      Principal.removeAll();
+      Principal.add(cont,BorderLayout.CENTER);
+      Principal.revalidate();
+      Principal.repaint();
+    }//GEN-LAST:event_btnmenucontadorActionPerformed
 
     private void btncalculadoracontadortComponentMoved(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_btncalculadoracontadortComponentMoved
-        // TODO add your handling code here:
+      
     }//GEN-LAST:event_btncalculadoracontadortComponentMoved
 
     /**
@@ -155,8 +161,8 @@ public class NewJFrameprincipal extends javax.swing.JFrame {
     private javax.swing.JPanel Principal;
     private javax.swing.JMenu btncalculadoracontadort;
     private javax.swing.JMenuItem btnmenucalculadora;
+    private javax.swing.JMenuItem btnmenucontador;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem2;
     // End of variables declaration//GEN-END:variables
 }

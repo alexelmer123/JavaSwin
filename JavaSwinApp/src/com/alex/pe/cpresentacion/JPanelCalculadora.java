@@ -26,35 +26,45 @@ public class JPanelCalculadora extends javax.swing.JPanel {
      */
     @SuppressWarnings("unchecked")
     
-    private void operacion (String sentecia){
-        if (sentecia.contains("+")) {
-            this.numeroOperado(sentecia, "\\+");
+     private void operacion(String sentencia){
+        if (sentencia.contains("+")) {
+            this.numeroOperado(sentencia, "\\+", "+");
             
-        } else if (sentecia.contains("-")){
-            this.numeroOperado(sentecia, "-");
+        } else if (sentencia.contains("-")){
+            this.numeroOperado(sentencia, "-","-");
             
-        }else if (sentecia.contains("/")){
-            this.numeroOperado(sentecia, "/");
+        }else if (sentencia.contains("/")){
+            this.numeroOperado(sentencia, "/","/");
             
-        }else if (sentecia.contains("*")){
-            this.numeroOperado(sentecia, "\\*");
+        }else if (sentencia.contains("x")){
+            this.numeroOperado(sentencia, "x","x");
         }
     }
-    public void  numeroOperado(String sentencia, String Simbolo){
-        String[] numero = sentencia.split(Simbolo);
-            float PrimerNumero = Float.parseFloat(numero[0]) ;
-            float SegundoNumero = Float.parseFloat(numero[1]) ;
-            float resultado= 0;
-            if (Simbolo.equals("\\+")) {
-                resultado = PrimerNumero + SegundoNumero;   
-        }else if (Simbolo.equals(" -")) {
-                resultado = PrimerNumero - SegundoNumero;         
-        }else if (Simbolo.equals("\\*")) {
-                resultado = PrimerNumero * SegundoNumero;  
-        }else if (Simbolo.equals("  /")) {
-                resultado = PrimerNumero / SegundoNumero;
+      public void numeroOperado(String sentencia, String Simbolo,String valida){
+        String[] cortar =  sentencia.split("");
+        String[] numero;
+        float primerNumero = 0;
+        float SegundoNumero = 0;
+        if(cortar[0].contains(valida)){
+            numero = sentencia.substring(1,sentencia.length()).split(Simbolo);
+             primerNumero = Float.parseFloat(numero[0])- Float.parseFloat(numero[0])*2 ;
+             SegundoNumero = 0;
+        }else{
+          numero = sentencia.split(Simbolo);
+          primerNumero = Float.parseFloat(numero[0]) ;
+          SegundoNumero = Float.parseFloat(numero[1]) ;
         }
-            this.Resultado.setText(String.valueOf( resultado));
+        float resultado = 0;
+        if (Simbolo.equals("\\+")) {
+            resultado = primerNumero + SegundoNumero;
+        }else if(Simbolo.equals("-")){
+            resultado = primerNumero - SegundoNumero;
+        }else if(Simbolo.equals("x")){
+            resultado = primerNumero * SegundoNumero;
+        }else if(Simbolo.equals("/")){
+            resultado = primerNumero / SegundoNumero;
+        }
+        this.Resultado.setText(String.valueOf(resultado));
     }
 
     
@@ -92,10 +102,12 @@ public class JPanelCalculadora extends javax.swing.JPanel {
 
         jButton2.setText("jButton2");
 
-        Calculadora.setBackground(new java.awt.Color(255, 255, 51));
+        Calculadora.setBackground(new java.awt.Color(0, 0, 0));
         Calculadora.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        calculadora.setBackground(new java.awt.Color(255, 255, 255));
         calculadora.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
+        calculadora.setForeground(new java.awt.Color(255, 255, 255));
         calculadora.setText("calculadora");
         Calculadora.add(calculadora, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
 
@@ -110,14 +122,29 @@ public class JPanelCalculadora extends javax.swing.JPanel {
 
         btncc.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         btncc.setText("cc");
+        btncc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnccActionPerformed(evt);
+            }
+        });
         Calculadora.add(btncc, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 70, 60));
 
         btnPorcentaje.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         btnPorcentaje.setText("%");
+        btnPorcentaje.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPorcentajeActionPerformed(evt);
+            }
+        });
         Calculadora.add(btnPorcentaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 70, 60));
 
         btnce.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         btnce.setText("ce");
+        btnce.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnceActionPerformed(evt);
+            }
+        });
         Calculadora.add(btnce, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 70, 60));
 
         btndivicion.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
@@ -157,7 +184,7 @@ public class JPanelCalculadora extends javax.swing.JPanel {
         Calculadora.add(btn8, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 70, 60));
 
         btnmultiplicacion.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        btnmultiplicacion.setText("*");
+        btnmultiplicacion.setText("x");
         btnmultiplicacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnmultiplicacionActionPerformed(evt);
@@ -239,6 +266,11 @@ public class JPanelCalculadora extends javax.swing.JPanel {
 
         bntcero.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         bntcero.setText("0");
+        bntcero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntceroActionPerformed(evt);
+            }
+        });
         Calculadora.add(bntcero, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 480, 70, 60));
 
         btnigual.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
@@ -299,7 +331,8 @@ public class JPanelCalculadora extends javax.swing.JPanel {
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void bntarrobaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntarrobaActionPerformed
-        // TODO add your handling code here:
+        this.operacion(this.Resultado.getText());
+        this.Resultado.setText(this.Resultado.getText() + "@");
     }//GEN-LAST:event_bntarrobaActionPerformed
 
     private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
@@ -327,19 +360,23 @@ public class JPanelCalculadora extends javax.swing.JPanel {
     }//GEN-LAST:event_btn9ActionPerformed
 
     private void btndivicionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndivicionActionPerformed
+        this.operacion(this.Resultado.getText());
         this.Resultado.setText(this.Resultado.getText() + "/");
     }//GEN-LAST:event_btndivicionActionPerformed
 
     private void btnmultiplicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmultiplicacionActionPerformed
-         this.Resultado.setText(this.Resultado.getText() +"*");
+         this.operacion(this.Resultado.getText());
+        this.Resultado.setText(this.Resultado.getText() +"x");
     }//GEN-LAST:event_btnmultiplicacionActionPerformed
 
     private void btnrestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrestaActionPerformed
-         this.Resultado.setText(this.Resultado.getText() +"-");
+         this.operacion(this.Resultado.getText());
+        this.Resultado.setText(this.Resultado.getText() +"-");
     }//GEN-LAST:event_btnrestaActionPerformed
 
     private void btnsumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsumaActionPerformed
-       this.Resultado.setText(this.Resultado.getText() +"+");
+       this.operacion(this.Resultado.getText());
+        this.Resultado.setText(this.Resultado.getText() +"+");
     }//GEN-LAST:event_btnsumaActionPerformed
 
     private void btnpuntoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpuntoActionPerformed
@@ -349,6 +386,24 @@ public class JPanelCalculadora extends javax.swing.JPanel {
     private void btnigualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnigualActionPerformed
          this.operacion(this.Resultado.getText());
     }//GEN-LAST:event_btnigualActionPerformed
+
+    private void btnccActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnccActionPerformed
+     this.Resultado.setText("");
+    }//GEN-LAST:event_btnccActionPerformed
+
+    private void btnceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnceActionPerformed
+      int tamanio = this.Resultado.getText().length();
+      this.Resultado.setText(this.Resultado.getText().substring(0,tamanio-1));
+    }//GEN-LAST:event_btnceActionPerformed
+
+    private void bntceroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntceroActionPerformed
+        this.Resultado.setText(this.Resultado.getText() + "0");
+    }//GEN-LAST:event_bntceroActionPerformed
+
+    private void btnPorcentajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPorcentajeActionPerformed
+         this.operacion(this.Resultado.getText());
+        this.Resultado.setText(this.Resultado.getText() + "%");
+    }//GEN-LAST:event_btnPorcentajeActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
