@@ -3,10 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/JAVA_SWING/JavaSwin/JavaSwinApp/src/com/alex/pe/cpresentacion/NewJFrameprincipal.java</file>
-            <file>file:/C:/JAVA_SWING/JavaSwin/JavaSwinApp/src/com/alex/pe/cpresentacion/JFrameloLogin.java</file>
-            <file>file:/C:/JAVA_SWING/JavaSwin/JavaSwinApp/src/com/alex/pe/cpresentacion/JPanelCalculadora.java</file>
-            <file>file:/C:/JAVA_SWING/JavaSwin/JavaSwinApp/src/com/alex/pe/cpresentacion/JPanelContador.java</file>
+            <file>file:/C:/JAVA_SWING/JavaSwin/JavaSwinApp/src/com/alex/pe/cdatosdao/TipoDocumentoDao.java</file>
+            <file>file:/C:/JAVA_SWING/JavaSwin/JavaSwinApp/src/com/alex/pe/cdb/Conexion.java</file>
+            <file>file:/C:/JAVA_SWING/JavaSwin/JavaSwinApp/src/com/alex/pe/ctest/Test.java</file>
+            <file>file:/C:/JAVA_SWING/JavaSwin/JavaSwinApp/src/com/alex/pe/cpresentacion/JPanelTipoDocumento.java</file>
+            <file>file:/C:/JAVA_SWING/JavaSwin/JavaSwinApp/src/com/alex/pe/cnegocio/TipoDocumentoBO.java</file>
+            <file>file:/C:/JAVA_SWING/JavaSwin/JavaSwinApp/src/com/alex/pe/cmodelo/TipoDocumento.java</file>
         </group>
     </open-files>
 </project-private>

@@ -1,8 +1,9 @@
 
 package com.alex.pe.cmodelo;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
-
 
 public class TipoDocumento {
     private int idTipoDocumento;
@@ -10,15 +11,30 @@ public class TipoDocumento {
     private String sigla;
     private String estado;
     private int orden;
-    private Date fecha;
+    private Date fechaRegistro;
+    private Date fechaActulizacion; 
 
-  /*  public TipoDocumento(int idTipoDocumento, String nombre, String sigla, String estado, int orden) {
-        this.idTipoDocumento = idTipoDocumento;
-        this.nombre = nombre;
-        this.sigla = sigla;
-        this.estado = estado;
-        this.orden = orden;
-    }*/
+//    public TipoDocumento(int idTipoDocumento, String nombre, String sigla, String estado, int orden, Date fecha) {
+//        this.idTipoDocumento = idTipoDocumento;
+//        this.nombre = nombre;
+//        this.sigla = sigla;
+//        this.estado = estado;
+//        this.orden = orden;
+//        this.fecha = fecha;
+//    }
+    public String getFechaActualizacion() {
+    SimpleDateFormat dateFormat = new SimpleDateFormat ("dd-MM-yy");
+    return dateFormat.format(fechaActulizacion);
+     
+  }
+
+
+
+  public void setFechaActualizacion(String fechaActulizacion)throws ParseException {
+    SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yy");
+    this.fechaActulizacion = dateFormat.parse(fechaActulizacion);
+
+  }
 
     public int getIdTipoDocumento() {
         return idTipoDocumento;
@@ -59,7 +75,34 @@ public class TipoDocumento {
     public void setOrden(int orden) {
         this.orden = orden;
     }
-    
+
+    public String getFecha() {
+        SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
+        return formato.format(fechaRegistro);
+    }
+
+    public void setFecha(String  fechaRegistro) throws ParseException {
+        SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
+        this.fechaRegistro = formato.parse(fechaRegistro);
+    }
+
+    public String getFechaActulizacion() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        return dateFormat.format(fechaActulizacion);
+    }
+
+    public void setFechaActulizacion(String fechaActulizacion) throws ParseException {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        this.fechaActulizacion = dateFormat.parse(fechaActulizacion);
+    }
+
+    public void setfechaActulizacion(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+  
+ 
+
     
     
 }

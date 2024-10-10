@@ -34,6 +34,9 @@ public class NewJFrameprincipal extends javax.swing.JFrame {
         btnmenucalculadora = new javax.swing.JMenuItem();
         btnmenucontador = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        jMenu1 = new javax.swing.JMenu();
+        btnmenuTipoDocumento = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Aplicacion en java Swing");
@@ -82,6 +85,21 @@ public class NewJFrameprincipal extends javax.swing.JFrame {
         jMenu2.setText("Edit");
         jMenuBar1.add(jMenu2);
 
+        jMenu1.setText("Mantenimiento");
+
+        btnmenuTipoDocumento.setText("TipoDocumento");
+        btnmenuTipoDocumento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnmenuTipoDocumentoActionPerformed(evt);
+            }
+        });
+        jMenu1.add(btnmenuTipoDocumento);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu3.setText("jMenu3");
+        jMenuBar1.add(jMenu3);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -122,6 +140,16 @@ public class NewJFrameprincipal extends javax.swing.JFrame {
       
     }//GEN-LAST:event_btncalculadoracontadortComponentMoved
 
+    private void btnmenuTipoDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmenuTipoDocumentoActionPerformed
+      JPanelTipoDocumento td = new JPanelTipoDocumento();
+      td.setSize (1022, 551);
+      td.setLocation (0,0);
+      Principal.removeAll();
+      Principal.add(td,BorderLayout.CENTER);
+      Principal.revalidate();
+      Principal.repaint();
+    }//GEN-LAST:event_btnmenuTipoDocumentoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -160,9 +188,12 @@ public class NewJFrameprincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Principal;
     private javax.swing.JMenu btncalculadoracontadort;
+    private javax.swing.JMenuItem btnmenuTipoDocumento;
     private javax.swing.JMenuItem btnmenucalculadora;
     private javax.swing.JMenuItem btnmenucontador;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 }
