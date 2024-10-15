@@ -9,6 +9,7 @@ import com.alex.pe.cdatosdao.TipoDocumentoDao;
 import com.alex.pe.cmodelo.TipoDocumento;
 import com.alex.pe.cdb.Conexion;
 import java.sql.SQLException;
+import javax.swing.JTable;
 
 public class TipoDocumentoBO {
     private String mensaje;
@@ -52,4 +53,20 @@ public class TipoDocumentoBO {
         }
         return mensaje;
     }
+    
+    public void ListarTipoDOcumento(JTable table) throws SQLException{
+        Connection c = Conexion.getConnection();
+        try {
+            tdd.ListarTipoDocumento(c, table);
+            c.commit();
+        } catch (Exception e) {
+            System.out.println("Error: "+ e.getMessage());    
+        } finally {
+            c.close();
+        }
+    
+        
+    }
+
+    
 }

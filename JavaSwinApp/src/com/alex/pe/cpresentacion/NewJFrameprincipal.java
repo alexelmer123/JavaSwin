@@ -5,6 +5,9 @@
 package com.alex.pe.cpresentacion;
 
 import java.awt.BorderLayout;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -141,13 +144,17 @@ public class NewJFrameprincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btncalculadoracontadortComponentMoved
 
     private void btnmenuTipoDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmenuTipoDocumentoActionPerformed
-      JPanelTipoDocumento td = new JPanelTipoDocumento();
-      td.setSize (1022, 551);
-      td.setLocation (0,0);
-      Principal.removeAll();
-      Principal.add(td,BorderLayout.CENTER);
-      Principal.revalidate();
-      Principal.repaint();
+        try {
+            JPanelTipoDocumento td = new JPanelTipoDocumento();
+            td.setSize (1000, 600);
+            td.setLocation (0,0);
+            Principal.removeAll();
+            Principal.add(td,BorderLayout.CENTER);
+            Principal.revalidate();
+            Principal.repaint();
+        } catch (SQLException ex) {
+            Logger.getLogger(NewJFrameprincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnmenuTipoDocumentoActionPerformed
 
     /**

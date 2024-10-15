@@ -4,7 +4,11 @@ package com.alex.pe.cdatosdao;
 import com.alex.pe.cmodelo.TipoDocumento;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.util.Date;
+import javax.swing.table.DefaultTableModel;
+import java.sql.Statement;
+import java.sql.ResultSet;
+import javax.swing.JTable;
+
 
 public class TipoDocumentoDao {
     private String mensaje;
@@ -12,8 +16,8 @@ public class TipoDocumentoDao {
     //Primer metodo - INSERTAR TIPO DOCUMENTOS A LA DB
     public String agregarTipoDocumento(Connection conn, TipoDocumento tipoDocumento){
         PreparedStatement ps = null;
-        String sql = "INSERT INTO TIPO_DOCUMENTO(NOMBRE,SIGLA,ESTADO,ORDEN,FECHA_ACTUALIZACION)"
-                + "VALUES(?,?,?,,?,?)";
+        String sql = "INSERT INTO TIPO_DOCUMENTO(NOMBRE, SIGLA, ESTADO ,ORDEN ,FECHA_ACTUALIZACION)"
+                + "VALUES(?,?,?,?,?)";
         try {
             
             ps = conn.prepareStatement(sql);
@@ -21,11 +25,12 @@ public class TipoDocumentoDao {
             ps.setString(2, tipoDocumento.getSigla());
             ps.setString(3, tipoDocumento.getEstado());
             ps.setInt(4, tipoDocumento.getOrden());
-            ps.setString(5, tipoDocumento.getFecha());
-            ps.setString(6, tipoDocumento.getFechaActulizacion());
+            ps.setString(5, tipoDocumento.getFechaActualizacion());
             ps.execute();
             ps.close();
             mensaje = "El tipo documento fue creado corectamente";
+            
+            
         } catch (Exception e) {
             mensaje = "Alto! error al crear tipo documento. " + e.getMessage();
             System.out.println(e.getMessage());
@@ -54,7 +59,7 @@ public class TipoDocumentoDao {
     public String modificarTipoDocumento(Connection conn, TipoDocumento tipoDocumento){
         PreparedStatement ps = null;
         String sql = "UPDATE TIPO_DOCUMENTO "
-                + " SET NOMBRE=?, SIGLA=?, ESTADO=?, ORDEN=?, FECHA_REGISTRO=?, FECHA_ACTUALIZA=?"
+                + " SET NOMBRE=?, SIGLA=?, ESTADO=?, ORDEN=?, FECHA_ACTUALIZACION=?"
                 + " WHERE ID_TIPO_DOCUMENTO=?";
         try {
             
@@ -63,9 +68,8 @@ public class TipoDocumentoDao {
             ps.setString(2, tipoDocumento.getSigla());
             ps.setString(3, tipoDocumento.getEstado());
             ps.setInt(4, tipoDocumento.getOrden());
-            ps.setString(5, tipoDocumento.getFecha());
-            ps.setString(6, tipoDocumento.getFechaActulizacion());
-            ps.setInt(7, tipoDocumento.getIdTipoDocumento());
+            ps.setString(5, tipoDocumento.getFechaActualizacion());
+            ps.setInt(6, tipoDocumento.getIdTipoDocumento());
             ps.execute();
             ps.close();
             mensaje = "El tipo documento fue actualizado corectamente";
@@ -76,5 +80,48 @@ public class TipoDocumentoDao {
         return mensaje;
     }
     
-    //........
+    ///cuarto metodo
+    public void ListarTipoDocumento(Connection conn,JTable table){
+        DefaultTableModel model;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        
+        String[] columnas = {"ID","NOMBRE","SIGLA","ESTADO","ORDEN","FECHA_ACTUALIZACION"};
+        model = new  DefaultTableModel (null, columnas);
+        
+        String sql = "select * from TIPO_DOCUMENTO ";
+        String [] datosTP = new String [6];
+        try {
+            statement = conn.createStatement();
+            resultSet = statement.executeQuery(sql);
+            while (resultSet.next()){
+                TipoDocumento td = new TipoDocumento();
+                td.setIdTipoDocumento(resultSet.getInt("ID_TIPO_DOCUMENTO"));
+                td.setNombre(resultSet.getString("NOMBRE"));
+                td.setEstado(resultSet.getString("Estado"));
+                td.setOrden(resultSet.getInt("ORDEN"));
+                td.setSigla(resultSet.getString("SIGLA"));
+                td.setFechaActualizacion(resultSet.getString("FECHA_ACTUALIZACION"));
+                
+                datosTP[0] = td.getIdTipoDocumento()+"";
+                datosTP[1] = td.getNombre()+"";
+                datosTP[2] = td.getSigla()+"";
+                datosTP[3] = td.getEstado()+"";
+                datosTP[4] = td.getOrden()+"";
+                datosTP[5] = td.getFechaActualizacion()+"";
+                model.addRow(datosTP);
+            
+            }
+            table.setModel(model);
+                   
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+
+        }
+       
+        
+        
+        
+        
+    }
 }

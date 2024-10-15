@@ -3,23 +3,25 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package com.alex.pe.cpresentacion;
-
+import com.alex.pe.cmodelo.TipoDocumento;
 import com.alex.pe.cnegocio.TipoDocumentoBO;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
-/**
- *
- * @author Soporte
- */
 public class JPanelTipoDocumento extends javax.swing.JPanel {
-    TipoDocumentoBO tdd = new TipoDocumentoBO();
-     TipoDocumentoBO td = new TipoDocumentoBO();
-
-    /**
-     * Creates new form JPanelTipoDocumento
-     */
-    public JPanelTipoDocumento() {
-        initComponents();
+  TipoDocumentoBO tdbo = new TipoDocumentoBO();
+  TipoDocumento td = new TipoDocumento();
+  String IdTipoDocumento;
+    
+    
+    public JPanelTipoDocumento()throws SQLException  {
+           initComponents();
+           listarTipoDocumento();
     }
+     public void listarTipoDocumento()throws SQLException{
+         tdbo.ListarTipoDOcumento(tableTipoDocumento);
+     }
+     
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -30,101 +32,42 @@ public class JPanelTipoDocumento extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
-        jCheckBoxMenuItem2 = new javax.swing.JCheckBoxMenuItem();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
-        jMenu7 = new javax.swing.JMenu();
-        jMenu8 = new javax.swing.JMenu();
-        jMenu9 = new javax.swing.JMenu();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        jPanelTipoDocumento = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableTipoDocumento = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
+        Textnombre = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        TipoDocumento = new javax.swing.JPanel();
-        cruttipodocumento = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tablatipodocumento = new javax.swing.JTable();
-        btnEliminar = new javax.swing.JButton();
-        btnModificar = new javax.swing.JButton();
-        textnombre = new javax.swing.JFormattedTextField();
+        Textsigla = new javax.swing.JTextField();
+        Textorden = new javax.swing.JTextField();
+        Textestado = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
+        Textfechaactualizacion = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        textsigla = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        textoreden = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        textestado = new javax.swing.JTextField();
-        textfechar = new javax.swing.JTextField();
-        btnguardar = new javax.swing.JButton();
         btnlimpiar = new javax.swing.JButton();
+        btnguardar = new javax.swing.JButton();
+        btnmodificar = new javax.swing.JButton();
+        btnelminar = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
+        jSeparator5 = new javax.swing.JSeparator();
         jSeparator6 = new javax.swing.JSeparator();
-        jSeparator1 = new javax.swing.JSeparator();
         jSeparator7 = new javax.swing.JSeparator();
         jSeparator8 = new javax.swing.JSeparator();
         jSeparator9 = new javax.swing.JSeparator();
-        jSeparator10 = new javax.swing.JSeparator();
-        jSeparator11 = new javax.swing.JSeparator();
 
-        jCheckBoxMenuItem1.setSelected(true);
-        jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
+        jPanelTipoDocumento.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jCheckBoxMenuItem2.setSelected(true);
-        jCheckBoxMenuItem2.setText("jCheckBoxMenuItem2");
+        jLabel1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("CRUT TIPO DOCUMENTO");
+        jPanelTipoDocumento.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 220, 60));
 
-        jMenu1.setText("jMenu1");
-
-        jMenuItem1.setText("jMenuItem1");
-
-        jMenu2.setText("jMenu2");
-
-        jMenu3.setText("jMenu3");
-
-        jMenu4.setText("jMenu4");
-
-        jMenu5.setText("jMenu5");
-
-        jMenu6.setText("jMenu6");
-
-        jMenu7.setText("jMenu7");
-
-        jMenu8.setText("jMenu8");
-
-        jMenu9.setText("jMenu9");
-
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane2.setViewportView(jList1);
-
-        jLabel2.setText("jLabel2");
-
-        jLabel3.setText("jLabel3");
-
-        jLabel4.setText("jLabel4");
-
-        TipoDocumento.setBackground(new java.awt.Color(0, 255, 255));
-        TipoDocumento.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        cruttipodocumento.setFont(new java.awt.Font("Script MT Bold", 0, 24)); // NOI18N
-        cruttipodocumento.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        cruttipodocumento.setText("CRUT Tipo Documento");
-        TipoDocumento.add(cruttipodocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(296, 6, 325, 47));
-
-        tablatipodocumento.setBackground(new java.awt.Color(204, 204, 204));
-        tablatipodocumento.setModel(new javax.swing.table.DefaultTableModel(
+        tableTipoDocumento.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -135,183 +78,214 @@ public class JPanelTipoDocumento extends javax.swing.JPanel {
 
             }
         ));
-        jScrollPane1.setViewportView(tablatipodocumento);
-
-        TipoDocumento.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 70, -1, -1));
-
-        btnEliminar.setBackground(new java.awt.Color(204, 204, 204));
-        btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
-        btnEliminar.setText("Eliminar");
-        TipoDocumento.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 490, -1, -1));
-
-        btnModificar.setBackground(new java.awt.Color(255, 0, 51));
-        btnModificar.setForeground(new java.awt.Color(255, 255, 255));
-        btnModificar.setText("Modificar");
-        TipoDocumento.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 490, -1, -1));
-
-        textnombre.setBorder(null);
-        textnombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textnombreActionPerformed(evt);
+        tableTipoDocumento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableTipoDocumentoMouseClicked(evt);
             }
         });
-        TipoDocumento.add(textnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 102, 350, 30));
+        jScrollPane1.setViewportView(tableTipoDocumento);
 
-        jLabel5.setText("nombre");
-        TipoDocumento.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 80, 20));
+        jPanelTipoDocumento.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 110, -1, -1));
 
-        jLabel6.setText("Sigla");
-        TipoDocumento.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, -1, -1));
+        jLabel2.setText("NOMBRE");
+        jPanelTipoDocumento.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 120, 30));
 
-        textsigla.setBorder(null);
-        TipoDocumento.add(textsigla, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 350, 30));
+        Textnombre.setBorder(null);
+        jPanelTipoDocumento.add(Textnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 350, 30));
 
-        jLabel7.setText("Orden");
-        TipoDocumento.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, -1, -1));
+        jLabel3.setText("SIGLA");
+        jPanelTipoDocumento.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, -1, -1));
 
-        jLabel8.setText("Estado");
-        TipoDocumento.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, -1, -1));
+        jLabel4.setText("ORDEN");
+        jPanelTipoDocumento.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, -1, -1));
 
-        textoreden.setBorder(null);
-        TipoDocumento.add(textoreden, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 222, 350, 30));
+        Textsigla.setBorder(null);
+        jPanelTipoDocumento.add(Textsigla, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, 350, 30));
 
-        jLabel9.setText("Fecha");
-        TipoDocumento.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, -1, -1));
-
-        textestado.setBorder(null);
-        TipoDocumento.add(textestado, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 282, 350, 30));
-
-        textfechar.setBorder(null);
-        TipoDocumento.add(textfechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, 350, 30));
-
-        btnguardar.setBackground(new java.awt.Color(0, 153, 0));
-        btnguardar.setForeground(new java.awt.Color(255, 255, 255));
-        btnguardar.setText("Guardar");
-        btnguardar.addActionListener(new java.awt.event.ActionListener() {
+        Textorden.setBorder(null);
+        Textorden.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnguardarActionPerformed(evt);
+                TextordenActionPerformed(evt);
             }
         });
-        TipoDocumento.add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 420, -1, 30));
+        jPanelTipoDocumento.add(Textorden, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 350, 30));
 
-        btnlimpiar.setBackground(new java.awt.Color(255, 51, 51));
-        btnlimpiar.setForeground(new java.awt.Color(255, 255, 255));
-        btnlimpiar.setText("Limpiar");
+        Textestado.setBorder(null);
+        jPanelTipoDocumento.add(Textestado, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 360, 350, 30));
+
+        jLabel5.setText("ESTADO");
+        jPanelTipoDocumento.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, -1, -1));
+
+        Textfechaactualizacion.setBorder(null);
+        jPanelTipoDocumento.add(Textfechaactualizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 430, 350, 30));
+
+        jLabel6.setText("FECHA ACTUALIZACION");
+        jPanelTipoDocumento.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, 160, -1));
+
+        btnlimpiar.setBackground(new java.awt.Color(153, 239, 243));
+        btnlimpiar.setText("Eliminar");
         btnlimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnlimpiarActionPerformed(evt);
             }
         });
-        TipoDocumento.add(btnlimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 420, -1, 30));
+        jPanelTipoDocumento.add(btnlimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 490, -1, -1));
 
+        btnguardar.setText("guardar");
+        btnguardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnguardarActionPerformed(evt);
+            }
+        });
+        jPanelTipoDocumento.add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 490, -1, -1));
+
+        btnmodificar.setText("modificar");
+        jPanelTipoDocumento.add(btnmodificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 540, -1, -1));
+
+        btnelminar.setText("eliminar");
+        btnelminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnelminarActionPerformed(evt);
+            }
+        });
+        jPanelTipoDocumento.add(btnelminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 540, -1, -1));
+
+        jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
+        jPanelTipoDocumento.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 400, 350, 50));
+
+        jSeparator2.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
-        TipoDocumento.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 350, -1));
+        jPanelTipoDocumento.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 470, 350, 50));
 
+        jSeparator3.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
-        TipoDocumento.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 350, -1));
-        TipoDocumento.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, -1, -1));
+        jPanelTipoDocumento.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 350, 50));
 
+        jSeparator4.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator4.setForeground(new java.awt.Color(0, 0, 0));
+        jPanelTipoDocumento.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 400, 350, 50));
+
+        jSeparator5.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator5.setForeground(new java.awt.Color(0, 0, 0));
+        jPanelTipoDocumento.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 400, 350, 50));
+
+        jSeparator6.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator6.setForeground(new java.awt.Color(0, 0, 0));
-        TipoDocumento.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 350, -1));
-        TipoDocumento.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 420, -1, -1));
+        jPanelTipoDocumento.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 400, 350, 50));
 
+        jSeparator7.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator7.setForeground(new java.awt.Color(0, 0, 0));
-        TipoDocumento.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 350, 30));
+        jPanelTipoDocumento.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, 350, 50));
 
+        jSeparator8.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator8.setForeground(new java.awt.Color(0, 0, 0));
-        TipoDocumento.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 380, 350, 30));
+        jPanelTipoDocumento.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 350, 50));
 
+        jSeparator9.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator9.setForeground(new java.awt.Color(0, 0, 0));
-        TipoDocumento.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 350, 20));
-
-        jSeparator10.setForeground(new java.awt.Color(0, 0, 0));
-        TipoDocumento.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 350, 20));
-
-        jSeparator11.setForeground(new java.awt.Color(0, 0, 0));
-        TipoDocumento.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 350, 30));
+        jPanelTipoDocumento.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, 350, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TipoDocumento, javax.swing.GroupLayout.DEFAULT_SIZE, 1022, Short.MAX_VALUE)
+            .addComponent(jPanelTipoDocumento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TipoDocumento, javax.swing.GroupLayout.DEFAULT_SIZE, 552, Short.MAX_VALUE)
+            .addComponent(jPanelTipoDocumento, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void textnombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textnombreActionPerformed
+    private void TextordenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextordenActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textnombreActionPerformed
+    }//GEN-LAST:event_TextordenActionPerformed
 
     private void btnlimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlimpiarActionPerformed
-      textnombre.setText(null);
-      textsigla.setText("");
-      textoreden.setText(null);
-      textestado.setText(null);
-      textfechar.setText("");
+      Textnombre.setText("");
+      Textsigla.setText("");
+      Textorden.setText("");
+      Textestado.setText("");
+      Textfechaactualizacion.setText("");
     }//GEN-LAST:event_btnlimpiarActionPerformed
 
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
-        try
-        td.setNombre("ASDASDAS DASD  Nacional de Identidad");
-        td.setEstado("1");
-        td.setOrden(1);
-        td.setSigla("DNIA");
-        td.setFecha("12-12-12");
-        td.setfechaActulizacion("09-10-2024");
-        tdbo.agregarTipoDocomento(td);
-        
+       try {
+
+      td.setNombre(Textnombre.getText());
+      td.setEstado(Textestado.getText());
+      td.setOrden(Integer.parseInt(Textestado.getText()));
+      td.setSigla(Textsigla.getText());
+      td.setFechaActualizacion( Textfechaactualizacion.getText());
+      tdbo.agregarTipoDocomento(td); 
+      listarTipoDocumento();
+      JOptionPane.showMessageDialog(null, ":) se guardo corectamente");
+    } catch (Exception e) {
+      JOptionPane.showMessageDialog(null, "Error: al guardar Tipo documento ");
+
+    }
     }//GEN-LAST:event_btnguardarActionPerformed
+
+    private void tableTipoDocumentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableTipoDocumentoMouseClicked
+      int seleccion = tableTipoDocumento.rowAtPoint(evt.getPoint());
+      IdTipoDocumento =  tableTipoDocumento.getValueAt(seleccion, 0)+"";
+      
+      Textnombre.setText(tableTipoDocumento.getValueAt(seleccion, 1) + "");
+      Textsigla.setText(tableTipoDocumento.getValueAt(seleccion, 2) + "");
+      Textorden.setText(tableTipoDocumento.getValueAt(seleccion, 3) + "");
+      Textestado.setText(tableTipoDocumento.getValueAt(seleccion, 4) + "");
+      Textfechaactualizacion.setText(tableTipoDocumento.getValueAt(seleccion, 5) + "");
+              
+              
+              
+              
+        System.out.println(seleccion);
+    }//GEN-LAST:event_tableTipoDocumentoMouseClicked
+
+    private void btnelminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnelminarActionPerformed
+       try {
+           TipoDocumento td = new TipoDocumento();
+           td.setIdTipoDocumento(Integer.parseInt(IdTipoDocumento));
+           tdbo.eliminarTipoDocomento(td);
+           listarTipoDocumento();
+       } catch (Exception alex ) {
+      JOptionPane.showMessageDialog(null, "Error:"+ alex.getMessage());
+       }
+    }//GEN-LAST:event_btnelminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel TipoDocumento;
-    private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnModificar;
+    private javax.swing.JTextField Textestado;
+    private javax.swing.JTextField Textfechaactualizacion;
+    private javax.swing.JTextField Textnombre;
+    private javax.swing.JTextField Textorden;
+    private javax.swing.JTextField Textsigla;
+    private javax.swing.JButton btnelminar;
     private javax.swing.JButton btnguardar;
     private javax.swing.JButton btnlimpiar;
-    private javax.swing.JLabel cruttipodocumento;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
+    private javax.swing.JButton btnmodificar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenu jMenu8;
-    private javax.swing.JMenu jMenu9;
-    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JPanel jPanelTipoDocumento;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator10;
-    private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
-    private javax.swing.JTable tablatipodocumento;
-    private javax.swing.JTextField textestado;
-    private javax.swing.JTextField textfechar;
-    private javax.swing.JFormattedTextField textnombre;
-    private javax.swing.JTextField textoreden;
-    private javax.swing.JTextField textsigla;
+    private javax.swing.JTable tableTipoDocumento;
     // End of variables declaration//GEN-END:variables
+
+    
+
+    
 }
