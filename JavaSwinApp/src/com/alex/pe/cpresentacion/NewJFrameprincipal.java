@@ -39,6 +39,7 @@ public class NewJFrameprincipal extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         btnmenuTipoDocumento = new javax.swing.JMenuItem();
+        btnmenupersonadocumento = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -97,6 +98,14 @@ public class NewJFrameprincipal extends javax.swing.JFrame {
             }
         });
         jMenu1.add(btnmenuTipoDocumento);
+
+        btnmenupersonadocumento.setText("PersonaDocumento");
+        btnmenupersonadocumento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnmenupersonadocumentoActionPerformed(evt);
+            }
+        });
+        jMenu1.add(btnmenupersonadocumento);
 
         jMenuBar1.add(jMenu1);
 
@@ -157,6 +166,16 @@ public class NewJFrameprincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnmenuTipoDocumentoActionPerformed
 
+    private void btnmenupersonadocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmenupersonadocumentoActionPerformed
+      JPPersonaDocumento pd = new JPPersonaDocumento();
+      pd.setSize (1200, 700);
+      pd.setLocation (0,0);
+      Principal.removeAll();
+      Principal.add(pd,BorderLayout.CENTER);
+      Principal.revalidate();
+      Principal.repaint();
+    }//GEN-LAST:event_btnmenupersonadocumentoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -198,6 +217,7 @@ public class NewJFrameprincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem btnmenuTipoDocumento;
     private javax.swing.JMenuItem btnmenucalculadora;
     private javax.swing.JMenuItem btnmenucontador;
+    private javax.swing.JMenuItem btnmenupersonadocumento;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

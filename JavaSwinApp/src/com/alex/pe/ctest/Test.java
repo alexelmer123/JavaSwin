@@ -14,10 +14,10 @@ public class Test {
     TipoDocumento td = new TipoDocumento();
     
     public  void insertar() throws SQLException, ParseException{
-        td.setIdTipoDocumento(3);
+        td.setIdTipoDocumento(2);
         td.setNombre("Nacional de Identidad");
-        td.setEstado("3");
-        td.setOrden(3);
+        td.setEstado("2");
+        td.setOrden(2);
         td.setSigla("dni");
         td.setFechaActualizacion("09-10-2024");
         tdbo.agregarTipoDocomento(td);
