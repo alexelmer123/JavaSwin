@@ -4,6 +4,10 @@
  */
 package com.alex.pe.cpresentacion;
 
+import com.alex.pe.cmodelo.TipoDocumento;
+import com.alex.pe.cnegocio.TipoDocumentoBO;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Soporte
@@ -15,6 +19,16 @@ public class JPPersonaDocumento extends javax.swing.JPanel {
      */
     public JPPersonaDocumento() {
         initComponents();
+         listarTipoDocumentoCombo();
+    }
+    private void  listarTipoDocumentoCombo(){
+        TipoDocumentoBO tdbo =new TipoDocumentoBO();
+        
+      for(TipoDocumento item : tdbo.listarTipoDocumentoCombo()){
+            jCTipoDocumento.addItem(item.getIdTipoDocumento()+"  "+item.getNombre());
+        
+        
+        }
     }
 
     /**
@@ -32,117 +46,132 @@ public class JPPersonaDocumento extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        ComboTipoDocumento = new javax.swing.JComboBox<>();
+        jCTipoDocumento = new javax.swing.JComboBox<>();
         Textnumerodocumento = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         TextEstado = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnlimpiar = new javax.swing.JButton();
+        btnguardar = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        jSeparator3 = new javax.swing.JSeparator();
+
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        PersonaDocumento.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         RegistroPersonaDocumento.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
         RegistroPersonaDocumento.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         RegistroPersonaDocumento.setText("REGISTRO PERSONA DOCUMENTO");
+        PersonaDocumento.add(RegistroPersonaDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 27, 325, 61));
 
         Textpersona.setBorder(null);
+        PersonaDocumento.add(Textpersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 116, 340, 20));
 
         jLabel2.setText("PERSONA");
+        PersonaDocumento.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 94, -1, -1));
 
         jLabel3.setText("TIPO DOCUMENTO");
+        PersonaDocumento.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 156, -1, -1));
 
         jLabel4.setText("NUMERO DE DOCUMENTO");
+        PersonaDocumento.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 218, 170, 18));
 
-        ComboTipoDocumento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DNI", "RUC" }));
-        ComboTipoDocumento.setBorder(null);
+        jCTipoDocumento.setBorder(null);
+        jCTipoDocumento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCTipoDocumentoActionPerformed(evt);
+            }
+        });
+        PersonaDocumento.add(jCTipoDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 180, 340, 26));
 
         Textnumerodocumento.setBorder(null);
+        PersonaDocumento.add(Textnumerodocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 242, 340, 20));
 
         jLabel5.setText("ESTADO");
+        PersonaDocumento.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 282, -1, -1));
 
         TextEstado.setBorder(null);
+        PersonaDocumento.add(TextEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 304, 340, 20));
 
-        jButton1.setText("Limpiar");
-        jButton1.setBorder(null);
+        btnlimpiar.setBackground(new java.awt.Color(255, 0, 51));
+        btnlimpiar.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
+        btnlimpiar.setForeground(new java.awt.Color(255, 255, 255));
+        btnlimpiar.setText("Limpiar");
+        btnlimpiar.setBorder(null);
+        btnlimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnlimpiarActionPerformed(evt);
+            }
+        });
+        PersonaDocumento.add(btnlimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 380, 70, 55));
 
-        jButton2.setText("Guardar");
-        jButton2.setBorder(null);
+        btnguardar.setBackground(new java.awt.Color(0, 255, 51));
+        btnguardar.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
+        btnguardar.setForeground(new java.awt.Color(255, 255, 255));
+        btnguardar.setText("Guardar");
+        btnguardar.setBorder(null);
+        btnguardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnguardarActionPerformed(evt);
+            }
+        });
+        PersonaDocumento.add(btnguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 380, 80, 55));
 
-        javax.swing.GroupLayout PersonaDocumentoLayout = new javax.swing.GroupLayout(PersonaDocumento);
-        PersonaDocumento.setLayout(PersonaDocumentoLayout);
-        PersonaDocumentoLayout.setHorizontalGroup(
-            PersonaDocumentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PersonaDocumentoLayout.createSequentialGroup()
-                .addGap(133, 133, 133)
-                .addGroup(PersonaDocumentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(PersonaDocumentoLayout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(TextEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(RegistroPersonaDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Textpersona, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(ComboTipoDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Textnumerodocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addContainerGap(150, Short.MAX_VALUE))
-        );
-        PersonaDocumentoLayout.setVerticalGroup(
-            PersonaDocumentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PersonaDocumentoLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(RegistroPersonaDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Textpersona, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addGap(8, 8, 8)
-                .addComponent(ComboTipoDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Textnumerodocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TextEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(PersonaDocumentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(141, 141, 141))
-        );
+        jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
+        PersonaDocumento.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 340, 30));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(PersonaDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PersonaDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        jSeparator2.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
+        PersonaDocumento.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 340, 30));
+
+        jSeparator3.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
+        PersonaDocumento.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 340, 30));
+
+        add(PersonaDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 540));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jCTipoDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCTipoDocumentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCTipoDocumentoActionPerformed
+
+    private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
+ String tdSeleccionado = (String)jCTipoDocumento.getSelectedItem();
+        String idPersona = tdSeleccionado.split(" ")[0];
+        
+        System.out.println("id: " + idPersona);
+        
+        try {
+            JOptionPane.showMessageDialog(null, ":) se guardo corectamente");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: al guardar Tipo documento ");
+        }
+    }//GEN-LAST:event_btnguardarActionPerformed
+
+    private void btnlimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlimpiarActionPerformed
+        Textpersona.setText("");
+        Textnumerodocumento.setText("");
+        TextEstado.setText("");
+    }//GEN-LAST:event_btnlimpiarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> ComboTipoDocumento;
     private javax.swing.JPanel PersonaDocumento;
     private javax.swing.JLabel RegistroPersonaDocumento;
     private javax.swing.JTextField TextEstado;
     private javax.swing.JTextField Textnumerodocumento;
     private javax.swing.JTextField Textpersona;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnguardar;
+    private javax.swing.JButton btnlimpiar;
+    private javax.swing.JComboBox<String> jCTipoDocumento;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
     // End of variables declaration//GEN-END:variables
 }

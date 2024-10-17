@@ -22,7 +22,7 @@ public class Test {
         td.setFechaActualizacion("09-10-2024");
         tdbo.agregarTipoDocomento(td);
     }
-    /*
+    
     public  void eliminar() throws SQLException, ParseException{
         td.setIdTipoDocumento(9);
         tdbo.eliminarTipoDocomento(td);
@@ -36,7 +36,7 @@ public class Test {
         td.setSigla("D");
         td.setFechaActualizacion("09-10-2024");        
         tdbo.modificarTipoDocumento(td);
-    }*/
+    }
    
     public static void main(String[] args) throws SQLException, ParseException {
         Test t = new  Test();

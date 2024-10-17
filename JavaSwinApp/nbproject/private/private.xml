@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>src/com/alex/pe/cpresentacion/JPPersonaDocumento.java</url>
+            <bookmark id="1">
+                <name/>
+                <line>24</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/JAVA_SWING/JavaSwin/JavaSwinApp/src/com/alex/pe/cpresentacion/JPPersonaDocumento.java</file>
+            <file>file:/C:/JAVA_SWING/JavaSwin/JavaSwinApp/src/com/alex/pe/cdatosdao/TipoDocumentoDao.java</file>
             <file>file:/C:/JAVA_SWING/JavaSwin/JavaSwinApp/src/com/alex/pe/cpresentacion/NewJFrameprincipal.java</file>
+            <file>file:/C:/JAVA_SWING/JavaSwin/JavaSwinApp/src/com/alex/pe/ctest/Test.java</file>
+            <file>file:/C:/JAVA_SWING/JavaSwin/JavaSwinApp/src/com/alex/pe/cpresentacion/JPanelTipoDocumento.java</file>
+            <file>file:/C:/JAVA_SWING/JavaSwin/JavaSwinApp/src/com/alex/pe/cnegocio/TipoDocumentoBO.java</file>
+            <file>file:/C:/JAVA_SWING/JavaSwin/JavaSwinApp/src/com/alex/pe/cmodelo/TipoDocumento.java</file>
         </group>
     </open-files>
 </project-private>

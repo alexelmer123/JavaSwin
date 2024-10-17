@@ -7,6 +7,8 @@ import java.sql.PreparedStatement;
 import javax.swing.table.DefaultTableModel;
 import java.sql.Statement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 
 
@@ -117,11 +119,29 @@ public class TipoDocumentoDao {
         } catch (Exception e) {
             System.out.println(e.getMessage());
 
-        }
-       
-        
-        
-        
-        
+        }                              
     }
-}
+    
+    public ArrayList<TipoDocumento> listarTipoDocumentosCombo(Connection conn){
+        ArrayList<TipoDocumento> listaTipoDocumento = new ArrayList<>();
+        Statement statement = null;
+        ResultSet resultSet = null;
+        
+        String sql = "SELECT ID_TIPO_DOCUMENTO, NOMBRE FROM TIPO_DOCUMENTO " +
+                     " ORDER BY ORDEN";
+        try {
+            statement = conn.createStatement();
+            resultSet = statement.executeQuery(sql);
+            while(resultSet.next()){
+                TipoDocumento td = new TipoDocumento();
+                td.setIdTipoDocumento(resultSet.getInt("ID_TIPO_DOCUMENTO"));
+                td.setNombre(resultSet.getString("NOMBRE"));
+                listaTipoDocumento.add(td);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: "+e.getMessage());
+            System.out.println(e.getMessage());
+        }
+        return listaTipoDocumento;
+    }
+    }
